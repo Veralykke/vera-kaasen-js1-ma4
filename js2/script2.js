@@ -1,22 +1,16 @@
 const gamesUrl = `https://api.rawg.io/api/games`;
 
-function createGames(response) {
-    return response.json();
-}
-
-function handleJson(json) {
-    console.dir(json);
-}
-
-function handleError(error) {
-    console.log(error);
-}
 
 fetch(gamesUrl)
-    .then(createGames)
-    .then(handleJson)
-    .catch(handleError);
-
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(json) {
+        handleJson(json);
+    })
+    .catch(function(error) {
+        console.log(error);
+    });
 
 
 function handleJson(json) {
@@ -31,11 +25,33 @@ function handleJson(json) {
     results.forEach(function(result) {
         //ELLER:  for (let i = 0; i < results.length; i++)??
         html += `<div class="game">
-    <h2>Name of game</h2>
-    <img src="/path/to/image" alt="Name of game">
-</div>`;
+        <h2>Name of game</h2>
+        <img src="/path/to/image" alt="Name of game">
+    </div>`;
 
     });
 
+
+
+    function handleResponse(response) {
+        return response.json();
+    }
+
+
+
     resultsContainer.innerHTML = html;
 }
+
+/*function handleError(error) {
+    console.log(error);
+}
+
+
+
+function createGames(response) {
+    return response.json();
+});*/
+
+let imageURL = `/path/to/image`;
+
+fetch
