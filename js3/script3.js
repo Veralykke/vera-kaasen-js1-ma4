@@ -1,4 +1,4 @@
-const games4200Url = "https://api.rawg.io/api/games/4200";
+const games4200Url = `https://api.rawg.io/api/games/4200`;
 
 fetch(games4200Url)
     .then(function(response) {
@@ -16,7 +16,9 @@ function createGameDetails(json) {
     h1.innerHTML = json.name;
 
     const Image = document.querySelector(".image");
-    let imgUrl = json.background_image;
+
+    const imgUrl = json.background_image;
+
     Image.style.backgroundImage = `url(${imgUrl})`;
 
     const description = document.querySelector(".description");
