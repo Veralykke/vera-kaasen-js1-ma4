@@ -6,52 +6,31 @@ fetch(gamesUrl)
         return response.json();
     })
     .then(function(json) {
-        handleJson(json);
+        createGames(json);
     })
     .catch(function(error) {
         console.log(error);
     });
 
 
-function handleJson(json) {
+function createGames(json) {
 
     const results = json.results;
     console.dir(results);
 
-    const resultsContainer = document.querySelector(".row.results");
+    const resultsContainer = document.querySelector(".results");
 
     let html = "";
 
-    results.forEach(function(result) {
+    results.forEach(function(results) {
         //ELLER:  for (let i = 0; i < results.length; i++)??
         html += `<div class="game">
-        <h2>Name of game</h2>
-        <img src="/path/to/image" alt="Name of game">
+        <h2>${results.name}</h2>
+        <img src="${results.background_image}" alt=${results.name}>
     </div>`;
 
     });
 
 
-
-    function handleResponse(response) {
-        return response.json();
-    }
-
-
-
     resultsContainer.innerHTML = html;
 }
-
-/*function handleError(error) {
-    console.log(error);
-}
-
-
-
-function createGames(response) {
-    return response.json();
-});*/
-
-let imageURL = `/path/to/image`;
-
-fetch
