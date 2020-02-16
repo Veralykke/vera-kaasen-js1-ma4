@@ -1,6 +1,5 @@
 const games4200Url = "https://api.rawg.io/api/games/4200";
 
-
 fetch(games4200Url)
     .then(function(response) {
         return response.json();
@@ -11,7 +10,6 @@ fetch(games4200Url)
     .catch(function(error) {
         console.log(error);
     });
-
 
 function createGameDetails(json) {
     const h1 = document.querySelector("h1");
