@@ -20,7 +20,7 @@ function createGameDetails(json) {
 
     const imgUrl = json.background_image;
 
-    Image.style.backgroundImage = `url(${imgUrl})`;
+    image.style.backgroundImage = `url(${imgUrl})`;
 
     const description = document.querySelector(".description");
     description.innerHTML = json.description;
